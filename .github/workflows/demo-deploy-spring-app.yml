@@ -36,8 +36,13 @@ on:
           - r9
           - res-cancel-port-out
           - res-req-pin
-      Config:
-        description: Deploy config
+      isSetConnector:
+        type: choice
+        description: Deploy Service Connector true or false
+        required: true
+        options:
+          - false
+          - true
       message:
         required: true
       use-emoji:
