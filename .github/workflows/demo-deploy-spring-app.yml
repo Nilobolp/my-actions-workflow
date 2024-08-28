@@ -43,8 +43,6 @@ on:
         options:
           - false
           - true
-      message:
-        required: true
       use-emoji:
         type: boolean
         description: Include 🎉🤣 emojis
