@@ -49,6 +49,18 @@ on:
       use-emoji:
         type: boolean
         description: Include 🎉🤣 emojis
+      redis:
+        type: boolean
+        description: redis
+      mongodb:
+        type: boolean
+        description: mongodb
+      keyV:
+        type: boolean
+        description: keyV
+      All:
+        type: boolean
+        description: All
       environment2:
         type: environment
 jobs:
