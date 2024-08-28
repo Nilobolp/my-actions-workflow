@@ -36,14 +36,8 @@ on:
           - r9
           - res-cancel-port-out
           - res-req-pin
-      tags:
-        description: 'Test scenario tags'
-        required: false
-        type: boolean
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: false
+      Config:
+        description: Deploy config
       message:
         required: true
       use-emoji:
