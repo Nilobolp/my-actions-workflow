@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
     inputs:
-          appName:
+      appName:
         type: choice
         description: Microservice Spring Name.
         required: true
