@@ -1,6 +1,41 @@
 on:
   workflow_dispatch:
     inputs:
+          appName:
+        type: choice
+        description: Microservice Spring Name.
+        required: true
+        options:
+          - a0
+          - a6
+          - a9
+          - api-gateway
+          - corp-cancel-port-out
+          - corp-port-out-pre-validate
+          - corp-prep-req-pin
+          - corp-req-pin
+          - online-query
+          - p0
+          - p1
+          - p2
+          - p3
+          - p4
+          - p5
+          - p6
+          - p7
+          - p9
+          - port-deact-fwd
+          - port-deact
+          - port-in-cancel
+          - port-in-req
+          - port-out-resp
+          - port-validation
+          - r0
+          - r6
+          - r7
+          - r9
+          - res-cancel-port-out
+          - res-req-pin
       logLevel:
         description: 'Log level'
         required: true
