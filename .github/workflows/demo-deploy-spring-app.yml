@@ -51,6 +51,9 @@ on:
       keyVault:
         type: boolean
         description: Create Connector Key Vault
+      storageBlob:
+        type: boolean
+        description: Create Connector Storage - Blob
       # environment2:
       #   type: environment
 jobs:
