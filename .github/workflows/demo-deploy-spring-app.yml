@@ -36,15 +36,12 @@ on:
           - r9
           - res-cancel-port-out
           - res-req-pin
-      use-emoji:
-        type: boolean
-        description: Include 🎉🤣 emojis
+      # use-emoji:
+      #   type: boolean
+      #   description: Include 🎉🤣 emojis
       config:
         type: boolean
         description: Update Environment variables.
-      all:
-        type: boolean
-        description: Create Connector all
       redis:
         type: boolean
         description: Create Connector Cache for Redis
@@ -54,8 +51,8 @@ on:
       keyVault:
         type: boolean
         description: Create Connector Key Vault
-      environment2:
-        type: environment
+      # environment2:
+      #   type: environment
 jobs:
   log-the-inputs:
     runs-on: ubuntu-latest
