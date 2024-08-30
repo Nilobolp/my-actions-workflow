@@ -61,8 +61,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "Log level: $LEVEL"
-          echo "Tags: $TAGS"
+          echo "Log redis: $redis"
+          echo "Log mongodb: $mongodb"
+          echo "Log keyVault: $keyVault"
+          echo "Log storageBlob: $storageBlob"
           echo "Environment: $ENVIRONMENT"
         env:
           LEVEL: ${{ inputs.logLevel }}
