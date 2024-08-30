@@ -76,33 +76,33 @@ jobs:
       #     az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       #     az config set extension.use_dynamic_install=yes_without_prompt
       #     az extension add -n spring -y
-      
+
       - name: Convert json to env variable files
-        if: (env.isConfig)
+        if: (env.isConfig == 'true')
         shell: bash
         run: echo Convert json to env variable files
 
       - name: Deploy update config env to Azure Spring App
-        if: (env.isConfig)
+        if: (env.isConfig == 'true')
         shell: bash
         run: echo Deploy update config env to Azure Spring App
 
       - name: Deploy Service Connector Cosmos DB
-        if: (env.isMongodb)
+        if: (env.isMongodb == 'true')
         shell: bash
         run: echo "Deploy Service Connector Cosmos DB"
-      
+
       - name: Deploy Service Connector Cache for Redis
-        if: (env.isRedis)
+        if: (env.isRedis == 'true')
         shell: bash
         run: echo "Deploy Service Connector Cache for Redis"
 
       - name: Deploy Service Connector Key Vault
-        if: (env.isKeyVault)
+        if: (env.isKeyVault == 'true')
         shell: bash
         run: echo "Deploy Service Connector Key Vault"
 
       - name: Deploy Service Connector Storage - Blob
-        if: (env.isStorageBlob)
+        if: (env.isStorageBlob == 'true')
         shell: bash
         run: echo "Deploy Service Connector Storage - Blob"
