@@ -41,19 +41,19 @@ on:
       #   description: Include 🎉🤣 emojis
       config:
         type: boolean
-        description: 🎉 Update Environment variables
+        description: 🎉Update Environment variables
       redis:
         type: boolean
-        description: Create Connector Cache for Redis 🎉
+        description: 🎉Create Connector Cache for Redis
       mongodb:
         type: boolean
-        description: Create Connector Cosmos DB 🎉
+        description: 🎉Create Connector Cosmos DB🎉
       keyVault:
         type: boolean
         description: 🎉Create Connector Key Vault
       storageBlob:
         type: boolean
-        description: Create Connector Storage - Blob
+        description: 🎉Create Connector Storage - Blob
       # environment2:
       #   type: environment
 jobs:
