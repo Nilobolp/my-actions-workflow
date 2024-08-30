@@ -56,17 +56,53 @@ on:
         description: 🎉Create Connector Storage - Blob
       # environment2:
       #   type: environment
+
+env:
+  isConfig: ${{ github.event.inputs.config }}
+  isRedis: ${{ github.event.inputs.redis }}
+  isMongodb: ${{ github.event.inputs.mongodb }}
+  isKeyVault: ${{ github.event.inputs.keyVault }}
+  isStorageBlob: ${{ github.event.inputs.storageBlob }}
+
 jobs:
-  log-the-inputs:
+  deploy:
+    name: prd-${{ github.event.inputs.appName }}
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "Log redis: $redis"
-          echo "Log mongodb: $mongodb"
-          echo "Log keyVault: $keyVault"
-          echo "Log storageBlob: $storageBlob"
-          echo "Environment: $ENVIRONMENT"
-        env:
-          LEVEL: ${{ inputs.logLevel }}
-          TAGS: ${{ inputs.tags }}
-          ENVIRONMENT: ${{ inputs.environment }}
+      # - name: Login via Azure CLI
+      #   shell: bash
+      #   run: |
+      #     az login --identity --username ${{ secrets.AZURE_SELFHOST_USER_MANAGE_IDENTITY_CLIENT_ID }}
+      #     az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      #     az config set extension.use_dynamic_install=yes_without_prompt
+      #     az extension add -n spring -y
+      
+      - name: Convert json to env variable files
+        if: (env.isConfig)
+        shell: bash
+        run: echo Convert json to env variable files
+
+      - name: Deploy update config env to Azure Spring App
+        if: (env.isConfig)
+        shell: bash
+        run: echo Deploy update config env to Azure Spring App
+
+      - name: Deploy Service Connector Cosmos DB
+        if: (env.isMongodb)
+        shell: bash
+        run: echo "Deploy Service Connector Cosmos DB"
+      
+      - name: Deploy Service Connector Cache for Redis
+        if: (env.isRedis)
+        shell: bash
+        run: echo "Deploy Service Connector Cache for Redis"
+
+      - name: Deploy Service Connector Key Vault
+        if: (env.isKeyVault)
+        shell: bash
+        run: echo "Deploy Service Connector Key Vault"
+
+      - name: Deploy Service Connector Storage - Blob
+        if: (env.isStorageBlob)
+        shell: bash
+        run: echo "Deploy Service Connector Storage - Blob"
