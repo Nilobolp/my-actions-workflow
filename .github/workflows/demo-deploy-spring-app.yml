@@ -41,19 +41,19 @@ on:
       #   description: Include 🎉🤣 emojis
       config:
         type: boolean
-        description: 🎉Update Environment variables
+        description: Update Environment variables🎉
       redis:
         type: boolean
-        description: 🎉Create Connector Cache for Redis
+        description: Create Connector Cache for Redis🎉
       mongodb:
         type: boolean
-        description: 🎉Create Connector Cosmos DB🎉
+        description: Create Connector Cosmos DB🎉
       keyVault:
         type: boolean
-        description: 🎉Create Connector Key Vault
+        description: Create Connector Key Vault🎉
       storageBlob:
         type: boolean
-        description: 🎉Create Connector Storage - Blob
+        description: Create Connector Storage - Blob🎉
       # environment2:
       #   type: environment
 
@@ -90,12 +90,17 @@ jobs:
       - name: Deploy Service Connector Cosmos DB
         if: (env.isMongodb == 'true')
         shell: bash
-        run: echo "Deploy Service Connector Cosmos DB"
+        run: |
+          echo "Deploy Service Connector Cosmos DB"
+          az spring connection create cosmos-mongo -g ${{ secrets.NPG_RESOURCE_GROUP_NAME }} --service ${{ env.serviceInstanceName }} --app ${{ env.envSpringApp }}-${{ env.appMicroName }} --tg ${{ secrets.NPG_RESOURCE_GROUP_NAME }} --account ${{ env.cosmosDBName }} --database ${{ env.dataBaseName }} --client-type springBoot --secret
 
       - name: Deploy Service Connector Cache for Redis
         if: (env.isRedis == 'true')
         shell: bash
-        run: echo "Deploy Service Connector Cache for Redis"
+        run: |
+          echo "Deploy Service Connector Cache for Redis"
+          az spring connection create redis -g ${{ secrets.NPG_RESOURCE_GROUP_NAME }} --service ${{ env.serviceInstanceName }} --app ${{ env.envSpringApp }}-${{ env.appMicroName }} --tg ${{ secrets.NPG_RESOURCE_GROUP_NAME }} --server ${{ env.redisName }} --database 0 --client-type springBoot --deployment default --secret --private-endpoint true
+
 
       - name: Deploy Service Connector Key Vault
         if: (env.isKeyVault == 'true')
