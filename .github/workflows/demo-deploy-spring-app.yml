@@ -42,6 +42,7 @@ on:
       config:
         type: boolean
         description: Update Environment variables🎉
+        default: true
       redis:
         type: boolean
         description: Create Connector Cache for Redis🎉
